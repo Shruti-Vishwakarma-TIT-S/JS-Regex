@@ -9,9 +9,9 @@ class PincodeValidator {
   
       const trimmedPincode = pincode.trim();
       
-      // Regex pattern: PIN must start with a digit (1-9) and be exactly 6 digits long
-      const pinRegex = /^[1-9][0-9]{5}$/;
-  
+      // Regex pattern: PIN must start with a digit (1-9), be exactly 6 digits, and may include a single space
+      const pinRegex = /^[1-9][0-9]{2} ?[0-9]{3}$/;
+
       if (pinRegex.test(trimmedPincode)) {
         console.log(`The PIN code "${trimmedPincode}" is valid.`);
         return true;
@@ -76,7 +76,7 @@ class PincodeValidator {
   // Batch Validation
   PincodeValidator.validateMultiple([
     // Valid 
-    "400088",
+    "400 088",
     // Invalid  
     "A400088", 
     // Invalid
