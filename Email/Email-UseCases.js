@@ -1,9 +1,12 @@
 // UC1: Validate Email Address with Mandatory "abc"
 class EmailValidator {
     static validate(email) {
-      // Regex pattern to validate the mandatory "abc" part in the email address
-      const emailRegex = /^abc.*@bridgelabz\.[a-zA-Z]+$/;
-
+    // Regex pattern for validation:
+    // - Starts with "abc"
+    // - Mandatory @ symbol
+    // - Second part "bridgelabz"
+    // - Mandatory "." followed by "co"
+    const emailRegex = /^abc.*@bridgelabz\.co.*$/;
       // Test the email address
       if (emailRegex.test(email)) {
         console.log(`The email "${email}" is valid.`);
@@ -21,5 +24,6 @@ class EmailValidator {
   EmailValidator.validate("abcd@bridgelabz.co");
   // Invalid email 
   EmailValidator.validate("xyz@bridgelabz.co"); 
+  EmailValidator.validate("abc@bridgelabzcom"); 
   EmailValidator.validate("abcxyz@bridgelabz"); 
   EmailValidator.validate("abcxyz@bridgelabz.");   
