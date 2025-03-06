@@ -6,7 +6,8 @@ class EmailValidator {
     // - Mandatory @ symbol
     // - Second part "bridgelabz"
     // - Mandatory "." followed by "co"
-    const emailRegex = /^abc.*@bridgelabz\.co.*$/;
+    // - Optional additional parts after "co" (e.g., ".in")
+    const emailRegex = /^abc([._+-][a-zA-Z0-9]+)*@bridgelabz\.co(\.[a-zA-Z]{2,})?$/
       // Test the email address
       if (emailRegex.test(email)) {
         console.log(`The email "${email}" is valid.`);
@@ -21,9 +22,10 @@ class EmailValidator {
   // Valid Email
   EmailValidator.validate("abc@bridgelabz.co"); 
   EmailValidator.validate("abc.xyz@bridgelabz.co"); 
-  EmailValidator.validate("abcd@bridgelabz.co");
+  EmailValidator.validate("abc.xyz@bridgelabz.co.in")
   // Invalid email 
   EmailValidator.validate("xyz@bridgelabz.co"); 
+  EmailValidator.validate("abcd@bridgelabz.co");
   EmailValidator.validate("abc@bridgelabzcom"); 
   EmailValidator.validate("abcxyz@bridgelabz"); 
   EmailValidator.validate("abcxyz@bridgelabz.");   
