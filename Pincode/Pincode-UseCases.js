@@ -38,6 +38,18 @@ class PincodeValidator {
       return false;
     }
   
+    // New Feature: Batch Validation
+    static validateMultiple(pinCodes) {
+      if (!Array.isArray(pinCodes)) {
+      console.log("Invalid Input: Provide an array of PIN codes for batch validation.");
+      return;
+      }
+
+      console.log("\nBatch Validation Results:");
+      pinCodes.forEach((pincode) => {
+       this.validate(pincode);
+    });
+}
     // Batch Validation
     static validateMultiple(pinCodes) {
       if (!Array.isArray(pinCodes)) {
@@ -73,5 +85,7 @@ class PincodeValidator {
     "40008",  
     // Invalid 
     "4000888", 
+    // Invalid
+    "400088#",
   ]);
   
